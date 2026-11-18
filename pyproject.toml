@@ -15,3 +15,28 @@ mutant-forge = "mutant_forge:main"
 [build-system]
 requires = ["uv_build>=0.13.9,<0.14.0"]
 build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+markers = [
+    "moose: needs the pinned MOOSE build ($MF_MOOSE_EXE)",
+    "bench: needs the benchmark checkout ($MF_BENCH_DIR)",
+    "api: needs ANTHROPIC_API_KEY (pass it with uv run --env-file .env)",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[dependency-groups]
+dev = [
+    "black>=26.10.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.5",
+]

@@ -1,0 +1,45 @@
+Hand-written fixture in the style of MOOSE output. Issue #15 checks it against a real run.
+
+Framework Information:
+MOOSE Version:           git commit c2dfd9fedd on 2026-07-30
+PETSc Version:           3.25.2
+Current Time:            Thu Nov 19 23:59:59 2026
+Executable Timestamp:    Thu Nov 19 21:12:44 2026
+
+Parallelism:
+  Num Processors:          1
+  Num Threads:             1
+
+Execution Information:
+  Executioner:             Transient
+  TimeStepper:             ConstantDT
+  Solver Mode:             NEWTON
+
+[32mTime Step 0, time = 0[39m
+
+[32mTime Step 1, time = 2, dt = 2[39m
+[32m 0 Nonlinear |R| = 1.000000e+00[39m
+      0 Linear |R| = 1.000000e+00
+[31m      Linear solve did not converge due to DIVERGED_ITS iterations 0[39m
+[31m Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0[39m
+[31m Solve Did NOT Converge![39m
+[31mAborting as solve did not converge[39m
+Finished Solving                                    [  0.53 s] [   41 MB]
+
+[32mTime Step 1, time = 1, dt = 1[39m
+[32m 0 Nonlinear |R| = 1.000000e+00[39m
+      0 Linear |R| = 1.000000e+00
+[31m      Linear solve did not converge due to DIVERGED_ITS iterations 0[39m
+[31m Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0[39m
+[31m Solve Did NOT Converge![39m
+[31mAborting as solve did not converge[39m
+Finished Solving                                    [  0.53 s] [   41 MB]
+
+
+*** ERROR ***
+The following occurred in the TimeStepper 'TimeStepper' of type ConstantDT.
+
+Solve failed and timestep already at or below dtmin, cannot continue!
+
+1: moose::internal::mooseErrorRaw(std::string, std::string, std::string, hit::Node const*, bool)
+0: TimeStepper::computeStep()
