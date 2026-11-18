@@ -1,0 +1,17 @@
+[project]
+name = "mutant-forge"
+version = "0.1.0"
+description = "Draft MOOSE diagnosis cases from injected faults"
+readme = "README.md"
+authors = [
+    { name = "Pramesh Shah", email = "93220122+prameshshah@users.noreply.github.com" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+mutant-forge = "mutant_forge:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"
