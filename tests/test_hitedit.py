@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 
 from mutant_forge.hitedit import (
@@ -72,3 +74,13 @@ def test_one_change_one_path():
 def test_missing_block_raises():
     with pytest.raises(HitEditError):
         set_param(BASE, "Nope/x", "1")
+
+
+def test_bases_are_readable():
+    # runs in CI, where the MOOSE tests in test_bases.py are skipped
+    bases = sorted((Path(__file__).parents[1] / "bases").glob("*.i"))
+    assert bases
+    for path in bases:
+        values = params(path.read_text(encoding="utf-8")).values()
+        # the editor keeps an inline "# comment" as part of the value, so none may appear
+        assert not any("#" in v for v in values), path.name
