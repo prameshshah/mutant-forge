@@ -31,7 +31,7 @@ class Lexicon:
 
     @classmethod
     def load(cls, path: Path | None = None) -> "Lexicon":
-        data = yaml.safe_load((path or DEFAULT_PATH).read_text())
+        data = yaml.safe_load((path or DEFAULT_PATH).read_text(encoding="utf-8"))
         return cls([Row(**row) for row in data["rows"]])
 
     def match(self, message: str) -> Row | None:

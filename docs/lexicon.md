@@ -20,7 +20,7 @@
 - **Printed by**: the file and line at MOOSE commit `c2dfd9fe` that prints the message, or the PETSc manual page for lines PETSc prints. Filled in after the real-run check (issue #8).
 - **Component**: the part of the solver the message belongs to.
 - **Role**: `context` marks an attempt, `failure` is a cause, `downstream` is a consequence of an earlier failure, `terminal` is the last line, where the run gives up.
-- **Label**: the identifier a correct answer uses.
+- **Label**: the identifier a correct answer uses. These are this project's draft labels, open for review, not an official benchmark vocabulary.
 
 `time_stepping` is the third possible failure stage. No row here makes it a first failure, so it serves as the plausible wrong answer when checking that scoring tells a right answer from a wrong one.
 
