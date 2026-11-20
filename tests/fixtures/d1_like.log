@@ -1,7 +1,7 @@
-Hand-written fixture in the style of MOOSE output. Issue #15 checks it against a real run.
+Hand-written fixture modeled on a real run of the public D1 case (issue #15).
 
 Framework Information:
-MOOSE Version:           git commit c2dfd9fedd on 2026-07-30
+MOOSE Version:           git commit c2dfd9fedd on 2026-08-18
 PETSc Version:           3.25.2
 Current Time:            Wed Nov 18 10:00:00 2026
 Executable Timestamp:    Wed Nov 18 04:53:00 2026
@@ -15,29 +15,41 @@ Execution Information:
   TimeStepper:             ConstantDT
   Solver Mode:             NEWTON
 
+
 Time Step 0, time = 0
 
 Time Step 1, time = 2, dt = 2
- 0 Nonlinear |R| = 1.000000e+00
-      0 Linear |R| = 1.000000e+00
-      Linear solve did not converge due to DIVERGED_ITS iterations 0
- Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0
+ 0 Nonlinear |R| = 2.179449e-01
+      0 Linear |R| = 2.179449e-01
+    Linear solve did not converge due to DIVERGED_ITS iterations 0
+  Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0
  Solve Did NOT Converge!
+
 Aborting as solve did not converge
 
 Time Step 1, time = 1, dt = 1
- 0 Nonlinear |R| = 1.000000e+00
-      0 Linear |R| = 1.000000e+00
-      Linear solve did not converge due to DIVERGED_ITS iterations 0
- Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0
+ 0 Nonlinear |R| = 2.179449e-01
+      0 Linear |R| = 2.179449e-01
+    Linear solve did not converge due to DIVERGED_ITS iterations 0
+  Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0
  Solve Did NOT Converge!
+
 Aborting as solve did not converge
 
 
 *** ERROR ***
-The following occurred in the TimeStepper 'TimeStepper' of type ConstantDT.
+The following occurred in the TimeStepper 'ConstantDT' of type ConstantDT.
 
 Solve failed and timestep already at or below dtmin, cannot continue!
 
-1: moose::internal::mooseErrorRaw(std::string, std::string, std::string, hit::Node const*, bool)
-0: TimeStepper::computeStep()
+Stack frames: 9
+0: libMesh::print_trace(std::ostream&)
+1: moose::internal::mooseErrorRaw(std::string, std::string, hit::Node const*, bool)
+2: MooseBase::callMooseError(MooseApp*, InputParameters const&, std::string, bool)
+3: MooseBase::callMooseError(std::string, bool, hit::Node const*, bool) const
+4: TimeStepper::computeFailedDT()
+5: TimeStepper::computeStep()
+6: TransientBase::execute()
+7: MooseApp::executeExecutioner()
+8: MooseApp::run()
+Abort(1) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0

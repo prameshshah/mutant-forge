@@ -1,32 +1,12 @@
 import os
+import shutil
 from pathlib import Path
 
 import pytest
-
-FIXTURES = Path(__file__).parent / "fixtures"
-
-# The 11 solver messages in fixtures/d1_like.log, in order.
-D1_EVENTS = [
-    "Time Step 1, time = 2, dt = 2",
-    "Linear solve did not converge due to DIVERGED_ITS iterations 0",
-    "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0",
-    "Solve Did NOT Converge!",
-    "Aborting as solve did not converge",
-    "Time Step 1, time = 1, dt = 1",
-    "Linear solve did not converge due to DIVERGED_ITS iterations 0",
-    "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0",
-    "Solve Did NOT Converge!",
-    "Aborting as solve did not converge",
-    "Solve failed and timestep already at or below dtmin, cannot continue!",
-]
+from helpers import FIXTURES
 
 # Each marker names the environment variable it needs; the test skips when it is missing.
 NEEDS = {"moose": "MF_MOOSE_EXE", "bench": "MF_BENCH_DIR", "api": "ANTHROPIC_API_KEY"}
-
-
-def read(name: str) -> str:
-    # read_bytes keeps "\r\n"; read_text would turn it into "\n" and hide the CRLF case
-    return (FIXTURES / name).read_bytes().decode("utf-8")
 
 
 def pytest_collection_modifyitems(config, items):
@@ -34,3 +14,28 @@ def pytest_collection_modifyitems(config, items):
         for marker, var in NEEDS.items():
             if item.get_closest_marker(marker) and not os.environ.get(var):
                 item.add_marker(pytest.mark.skip(reason=f"needs ${var}"))
+
+
+@pytest.fixture
+def fake(tmp_path):
+    """An executable fake MOOSE, with the D1-like log it prints next to it."""
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    exe = bin_dir / "fake_moose.py"
+    shutil.copy(Path(__file__).parent / "fake_moose.py", exe)
+    shutil.copy(FIXTURES / "d1_like.log", bin_dir)
+    exe.chmod(0o755)
+    return exe
+
+
+@pytest.fixture
+def inp(tmp_path):
+    """Returns a function that writes a small input for the fake MOOSE."""
+
+    def write(mode: str, dt: str = "2") -> Path:
+        f = tmp_path / f"{mode}-{dt}.i"
+        counter = tmp_path / "flaky.count"
+        f.write_text(f"# FAKE: mode={mode}\n# FAKE: counter={counter}\ndt = {dt}\ndtmin = 1\n")
+        return f
+
+    return write
