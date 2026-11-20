@@ -7,7 +7,9 @@ authors = [
     { name = "Pramesh Shah", email = "93220122+prameshshah@users.noreply.github.com" }
 ]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "pyyaml>=6.0.3",
+]
 
 [project.scripts]
 mutant-forge = "mutant_forge:main"
