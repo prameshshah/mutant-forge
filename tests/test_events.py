@@ -1,4 +1,4 @@
-from conftest import D1_EVENTS, read
+from helpers import D1_EVENTS, read
 
 from mutant_forge.events import extract_events, unclassified_failure_lines
 
@@ -31,6 +31,23 @@ def test_unknown_failure_line_is_flagged():
 def test_known_lines_are_not_flagged():
     # includes the *** ERROR *** banner and the stack trace after the dtmin line
     assert unclassified_failure_lines(read("d1_like.log")) == []
+
+
+def test_colored_log_has_no_unclassified_lines():
+    assert unclassified_failure_lines(read("d1_like_noise.log")) == []
+
+
+def test_other_moose_error_is_flagged():
+    trace = "1: moose::internal::mooseErrorRaw(std::string, std::string, hit::Node const*, bool)"
+    raw = (
+        "*** ERROR ***\n"
+        "The following occurred in the Kernel 'diff' of type Diffusion.\n\n"
+        "Unable to find variable 'v'\n\n"
+        "Stack frames: 2\n"
+        "0: libMesh::print_trace(std::ostream&)\n" + trace + "\n"
+    )
+    # the message has no failure word, so the stack trace is what catches it
+    assert unclassified_failure_lines(raw) == [trace]
 
 
 def test_nan_is_a_word():
