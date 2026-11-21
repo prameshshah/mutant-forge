@@ -1,5 +1,6 @@
 # Solver messages we recognize, one row each. Add a row only for a message seen in
-# real output, and set `source` to the file:line that prints it (issue #8).
+# real output, and set `source` to what prints it: the file:line at MOOSE commit
+# c2dfd9fe, or the PETSc 3.25.2 message format and the option that turns it on.
 #
 # role: context (marks an attempt), failure (a cause), downstream (a consequence),
 #       terminal (the last line, where the run gives up)
@@ -12,7 +13,7 @@ rows:
     role: context
     symptom: null
     token: Time Step
-    source: ""
+    source: 'framework/src/outputs/Console.C:435 (dt at line 445)'
 
   - id: linear_not_converged
     pattern: '^Linear solve did not converge due to \w+ iterations \d+$'
@@ -20,7 +21,7 @@ rows:
     role: failure
     symptom: null
     token: "{reason}"
-    source: ""
+    source: 'PETSc 3.25.2 "Linear solve did not converge due to %s iterations %ld" (-ksp_converged_reason, which MOOSE adds as ::failed in framework/src/utils/PetscSupport.C:832-845)'
 
   - id: nonlinear_not_converged
     pattern: '^Nonlinear solve did not converge due to \w+ iterations \d+$'
@@ -28,7 +29,7 @@ rows:
     role: failure
     symptom: null
     token: "{reason}"
-    source: ""
+    source: 'PETSc 3.25.2 "Nonlinear solve did not converge due to %s iterations %ld" (-snes_converged_reason, which MOOSE adds as ::failed in framework/src/utils/PetscSupport.C:832-845)'
 
   - id: solve_did_not_converge
     pattern: '^Solve Did NOT Converge!$'
@@ -36,7 +37,7 @@ rows:
     role: downstream
     symptom: null
     token: Did NOT Converge
-    source: ""
+    source: 'framework/src/executioners/FEProblemSolve.C:505'
 
   - id: aborting
     pattern: '^Aborting as solve did not converge$'
@@ -44,7 +45,7 @@ rows:
     role: downstream
     symptom: null
     token: Aborting
-    source: ""
+    source: 'framework/src/executioners/TransientBase.C:511 (steady runs: SteadyBase.C:74)'
 
   - id: dtmin_terminal
     pattern: '^Solve failed and timestep already at or below dtmin, cannot continue!$'
@@ -52,4 +53,4 @@ rows:
     role: terminal
     symptom: timestep_at_or_below_dtmin
     token: dtmin
-    source: ""
+    source: 'framework/src/timesteppers/TimeStepper.C:210 (mooseError)'

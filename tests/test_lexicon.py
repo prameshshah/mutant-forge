@@ -49,6 +49,5 @@ def test_patterns_match_the_extractor():
     assert sorted(r.pattern for r in LEX.rows) == sorted(p.pattern for p in KEEP_PATTERNS)
 
 
-@pytest.mark.xfail(strict=True, reason="sources are added with the real-run check, issue #8")
 def test_every_row_has_source():
     assert all(r.source for r in LEX.rows)
