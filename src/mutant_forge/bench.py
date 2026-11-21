@@ -7,9 +7,11 @@ import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
+TIMEOUT_S = 120  # a call takes about a second; the first one may also sync the environment
+
 
 class BenchError(Exception):
-    """The benchmark CLI could not be run or rejected its input; carries its stderr."""
+    """The benchmark CLI could not be run or rejected its input; carries its message."""
 
 
 def _cli(*args) -> str:
@@ -18,11 +20,14 @@ def _cli(*args) -> str:
         raise BenchError("MF_BENCH_DIR is not set")
     cmd = ["uv", "run", "--project", bench_dir, "moose-benchmark", *map(str, args)]
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True)
-    except FileNotFoundError as e:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=TIMEOUT_S)
+    except subprocess.TimeoutExpired as e:
+        raise BenchError(f"moose-benchmark timed out after {TIMEOUT_S} s") from e
+    except OSError as e:
         raise BenchError(f"cannot run uv: {e}") from e
     if proc.returncode != 0:
-        raise BenchError(proc.stderr.strip() or f"moose-benchmark exited {proc.returncode}")
+        message = proc.stderr.strip() or proc.stdout.strip()
+        raise BenchError(message or f"moose-benchmark exited {proc.returncode}")
     return proc.stdout
 
 
@@ -69,7 +74,11 @@ def score(
     args += ["--submission-dir", Path(submission_dir).resolve()]
     if run_record:
         args += ["--run-record", Path(run_record).resolve()]
-    return json.loads(_cli("score", *args))
+    # read the result from --output, so nothing else printed to stdout can break the parse
+    with tempfile.TemporaryDirectory() as tmp:
+        result = Path(tmp) / "result.json"
+        _cli("score", *args, "--output", result)
+        return json.loads(result.read_text(encoding="utf-8"))
 
 
 @dataclass(frozen=True)

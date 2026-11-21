@@ -5,7 +5,7 @@ import yaml
 from helpers import d1_spec
 
 from mutant_forge.lexicon import Lexicon
-from mutant_forge.writer import case_id_for, write_case, wrong_stage_response
+from mutant_forge.writer import case_id_for, write_case, write_manifest, wrong_stage_response
 
 LEX = Lexicon.load()
 SPEC = d1_spec()
@@ -88,3 +88,11 @@ def test_wrong_stage_differs():
 
 def test_case_id():
     assert case_id_for("diff1dt", "F1", 1) == "D1-MF-DIFF1DT-F1-001"
+
+
+def test_manifest(tmp_path):
+    m = yaml.safe_load(write_manifest(tmp_path, ["A", "B"]).read_text())
+    assert m["schema_version"] == "2.0" and m["required_atomic_subcategories"] == ["D1"]
+    assert [c["case_id"] for c in m["cases"]] == ["A", "B"]
+    assert m["cases"][0]["public_case"] == "public/cases/A/case.yaml"
+    assert m["cases"][0]["private_evaluation"] == "private/cases/A/evaluation.yaml"
