@@ -1,0 +1,57 @@
+# The 40 fault specs for the v0 run. Each spec breaks one base problem in one way.
+#
+# F1-F3: the first two specs of each (base, fault) pair are the shallow (dt 2) and the
+# deep (dt 32) cut-back chain; the rest use other dt/dtmin pairs.
+# F3: every tolerance pair at or below 1e-16 gave the same messages in a probe, and
+# 1e-14 was reached, so F3 uses one unreachable pair and varies dt instead.
+# F4: meshes whose message lists differed in a probe come first (4, 5, 3, 11, 15, 16);
+# 8 and 6 repeat the lists of 3 and 4.
+
+specs:
+  - {id: f1-diff1dt-1, base: diff1dt, fault: F1, params: {dt: 2, dtmin: 1}}
+  - {id: f1-diff1dt-2, base: diff1dt, fault: F1, params: {dt: 32, dtmin: 1}}
+  - {id: f1-diff1dt-3, base: diff1dt, fault: F1, params: {dt: 4, dtmin: 1}}
+  - {id: f1-diff1dt-4, base: diff1dt, fault: F1, params: {dt: 8, dtmin: 2}}
+
+  - {id: f1-nlheat1dt-1, base: nlheat1dt, fault: F1, params: {dt: 2, dtmin: 1}}
+  - {id: f1-nlheat1dt-2, base: nlheat1dt, fault: F1, params: {dt: 32, dtmin: 1}}
+  - {id: f1-nlheat1dt-3, base: nlheat1dt, fault: F1, params: {dt: 4, dtmin: 1}}
+  - {id: f1-nlheat1dt-4, base: nlheat1dt, fault: F1, params: {dt: 8, dtmin: 2}}
+
+  - {id: f1-nlheat2dt-1, base: nlheat2dt, fault: F1, params: {dt: 2, dtmin: 1}}
+  - {id: f1-nlheat2dt-2, base: nlheat2dt, fault: F1, params: {dt: 32, dtmin: 1}}
+  - {id: f1-nlheat2dt-3, base: nlheat2dt, fault: F1, params: {dt: 4, dtmin: 1}}
+  - {id: f1-nlheat2dt-4, base: nlheat2dt, fault: F1, params: {dt: 8, dtmin: 2}}
+
+  - {id: f2-nlheat1dt-1, base: nlheat1dt, fault: F2, params: {dt: 2, dtmin: 1}}
+  - {id: f2-nlheat1dt-2, base: nlheat1dt, fault: F2, params: {dt: 32, dtmin: 1}}
+  - {id: f2-nlheat1dt-3, base: nlheat1dt, fault: F2, params: {dt: 4, dtmin: 1}}
+  - {id: f2-nlheat1dt-4, base: nlheat1dt, fault: F2, params: {dt: 8, dtmin: 2}}
+
+  - {id: f2-nlheat2dt-1, base: nlheat2dt, fault: F2, params: {dt: 2, dtmin: 1}}
+  - {id: f2-nlheat2dt-2, base: nlheat2dt, fault: F2, params: {dt: 32, dtmin: 1}}
+  - {id: f2-nlheat2dt-3, base: nlheat2dt, fault: F2, params: {dt: 4, dtmin: 1}}
+  - {id: f2-nlheat2dt-4, base: nlheat2dt, fault: F2, params: {dt: 8, dtmin: 2}}
+
+  - {id: f3-nlheat1dt-1, base: nlheat1dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 2, dtmin: 1}}
+  - {id: f3-nlheat1dt-2, base: nlheat1dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 32, dtmin: 1}}
+  - {id: f3-nlheat1dt-3, base: nlheat1dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 4, dtmin: 1}}
+  - {id: f3-nlheat1dt-4, base: nlheat1dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 8, dtmin: 2}}
+  - {id: f3-nlheat1dt-5, base: nlheat1dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 16, dtmin: 4}}
+  - {id: f3-nlheat1dt-6, base: nlheat1dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 3, dtmin: 1}}
+
+  - {id: f3-nlheat2dt-1, base: nlheat2dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 2, dtmin: 1}}
+  - {id: f3-nlheat2dt-2, base: nlheat2dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 32, dtmin: 1}}
+  - {id: f3-nlheat2dt-3, base: nlheat2dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 4, dtmin: 1}}
+  - {id: f3-nlheat2dt-4, base: nlheat2dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 8, dtmin: 2}}
+  - {id: f3-nlheat2dt-5, base: nlheat2dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 16, dtmin: 4}}
+  - {id: f3-nlheat2dt-6, base: nlheat2dt, fault: F3, params: {nl_rel_tol: 1e-20, nl_abs_tol: 1e-50, nl_max_its: 20, dt: 3, dtmin: 1}}
+
+  - {id: f4-diff2ds-1, base: diff2ds, fault: F4, params: {nx: 4, ny: 4}}
+  - {id: f4-diff2ds-2, base: diff2ds, fault: F4, params: {nx: 5, ny: 5}}
+  - {id: f4-diff2ds-3, base: diff2ds, fault: F4, params: {nx: 3, ny: 3}}
+  - {id: f4-diff2ds-4, base: diff2ds, fault: F4, params: {nx: 11, ny: 11}}
+  - {id: f4-diff2ds-5, base: diff2ds, fault: F4, params: {nx: 15, ny: 15}}
+  - {id: f4-diff2ds-6, base: diff2ds, fault: F4, params: {nx: 16, ny: 16}}
+  - {id: f4-diff2ds-7, base: diff2ds, fault: F4, params: {nx: 8, ny: 8}}
+  - {id: f4-diff2ds-8, base: diff2ds, fault: F4, params: {nx: 6, ny: 6}}
