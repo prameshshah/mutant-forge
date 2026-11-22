@@ -1,5 +1,5 @@
 import pytest
-from helpers import D1_EVENTS, NONLINEAR_EVENTS
+from helpers import D1_EVENTS, F4_EVENTS, NONLINEAR_EVENTS
 
 from mutant_forge.events import KEEP_PATTERNS
 from mutant_forge.lexicon import LabelError, Lexicon, evidence_token, label
@@ -42,11 +42,28 @@ def test_evidence_token():
 
 def test_vocabularies():
     assert LEX.stages() == ["linear_solve", "nonlinear_solve", "time_stepping"]
-    assert LEX.symptoms() == ["timestep_at_or_below_dtmin"]
+    assert LEX.symptoms() == ["solve_aborted", "timestep_at_or_below_dtmin"]
+
+
+def test_f4_steady_abort_is_the_terminal_symptom():
+    labels = label(F4_EVENTS, LEX)
+    assert (labels.failure_stage, labels.terminal_symptom, labels.wrong_stage) == (
+        "linear_solve",
+        "solve_aborted",
+        "nonlinear_solve",
+    )
+    row = LEX.match(labels.terminal_event, steady_end=True)
+    assert evidence_token(labels.terminal_event, row) == "Aborting"
+
+
+def test_abort_in_a_transient_run_is_downstream():
+    assert LEX.match("Aborting as solve did not converge").role == "downstream"
+    assert label(D1_EVENTS, LEX).terminal_symptom == "timestep_at_or_below_dtmin"
 
 
 def test_patterns_match_the_extractor():
-    assert sorted(r.pattern for r in LEX.rows) == sorted(p.pattern for p in KEEP_PATTERNS)
+    # the steady abort reuses the aborting pattern, so compare the sets of patterns
+    assert {r.pattern for r in LEX.rows} == {p.pattern for p in KEEP_PATTERNS}
 
 
 def test_every_row_has_source():

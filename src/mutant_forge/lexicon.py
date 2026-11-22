@@ -23,6 +23,7 @@ class Row:
     symptom: str | None
     token: str  # the word a correct answer must quote; "{reason}" means the PETSc reason code
     source: str
+    steady_end: bool = False  # applies only to the last line of a run with no time steps
 
 
 @dataclass(frozen=True)
@@ -34,8 +35,14 @@ class Lexicon:
         data = yaml.safe_load((path or DEFAULT_PATH).read_text(encoding="utf-8"))
         return cls([Row(**row) for row in data["rows"]])
 
-    def match(self, message: str) -> Row | None:
-        return next((r for r in self.rows if re.fullmatch(r.pattern, message)), None)
+    def match(self, message: str, steady_end: bool = False) -> Row | None:
+        hits = [r for r in self.rows if re.fullmatch(r.pattern, message)]
+        # at the end of a steady run a steady_end row wins; anywhere else it does not apply
+        if steady_end:
+            hits = [r for r in hits if r.steady_end] or hits
+        else:
+            hits = [r for r in hits if not r.steady_end]
+        return hits[0] if hits else None
 
     def stages(self) -> list[str]:
         return sorted(STAGE_OF.values())
@@ -60,9 +67,10 @@ class LabelError(Exception):
 
 
 def label(events: list[str], lexicon: Lexicon) -> Labels:
+    steady = not any(e.startswith("Time Step ") for e in events)
     rows = []
-    for event in events:
-        row = lexicon.match(event)
+    for i, event in enumerate(events):
+        row = lexicon.match(event, steady_end=steady and i == len(events) - 1)
         if row is None:
             raise LabelError("label_unknown", event)
         rows.append(row)

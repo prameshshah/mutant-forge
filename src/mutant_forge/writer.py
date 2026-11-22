@@ -273,8 +273,11 @@ def write_case(spec: CaseSpec, root: Path, lexicon: Lexicon) -> None:
         f"- Platform: {spec.meta.platform}\n"
         f"- Captured: {spec.meta.captured_on.isoformat()}\n",
     )
+    home = str(Path.home())
     for k, run in enumerate(spec.runs, 1):
-        _write(private / "validation" / f"run-{k}.log", run.output)
+        # stack traces name the MOOSE build under the home folder; keep that path private
+        log = run.output.replace(home, "~") if len(home) > 1 else run.output
+        _write(private / "validation" / f"run-{k}.log", log)
         _write(private / "validation" / f"run-{k}.status", f"{run.exit_code}\n")
     _write_json(
         private / "validation-summary.json",

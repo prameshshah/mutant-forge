@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "case_id": "D1-MF-NLHEAT2DT-F2-001",
+  "captured_on": "2026-11-21",
+  "executable": "modules/combined/combined-opt",
+  "moose_revision": "c2dfd9fedd3193740a5278ec32269450c618e3b7",
+  "petsc_version": "3.25.2",
+  "command": "combined-opt -i failing.i --color off",
+  "process_count": 1,
+  "repetitions": 3,
+  "expected_exit_code": 1,
+  "timestep_attempts": [
+    4,
+    2,
+    1
+  ],
+  "sha256": {
+    "artifacts/failing.i": "502859e3bd2780ff393277ddf3a918628ac87ba92d34cfde0423569d778511f4",
+    "evidence/solver-events.json": "16087419176999010ad7b37ae05c06fdd487a56eea9b247cfcf3107853bf8e38"
+  }
+}

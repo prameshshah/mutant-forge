@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "case_id": "D1-MF-NLHEAT1DT-F1-002",
+  "exit_code": 1,
+  "ordered_events": [
+    {
+      "order": 1,
+      "message": "Time Step 1, time = 8, dt = 8"
+    },
+    {
+      "order": 2,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 3,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 4,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 5,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 6,
+      "message": "Time Step 1, time = 4, dt = 4"
+    },
+    {
+      "order": 7,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 8,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 9,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 10,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 11,
+      "message": "Time Step 1, time = 2, dt = 2"
+    },
+    {
+      "order": 12,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 13,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 14,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 15,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 16,
+      "message": "Solve failed and timestep already at or below dtmin, cannot continue!"
+    }
+  ]
+}

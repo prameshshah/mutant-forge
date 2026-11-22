@@ -33,6 +33,15 @@ NONLINEAR_EVENTS = [
 ]
 
 
+# F4 on diff2ds at 4x4: a steady run whose last line is the abort (real run, 2026-11-20).
+F4_EVENTS = [
+    "Linear solve did not converge due to DIVERGED_BREAKDOWN iterations 30",
+    "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0",
+    "Solve Did NOT Converge!",
+    "Aborting as solve did not converge",
+]
+
+
 def read(name: str) -> str:
     # read_bytes keeps "\r\n"; read_text would turn it into "\n" and hide the CRLF case
     return (FIXTURES / name).read_bytes().decode("utf-8")

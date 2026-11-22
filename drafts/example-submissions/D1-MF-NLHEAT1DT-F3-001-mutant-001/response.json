@@ -1,0 +1,18 @@
+{
+  "claim": {
+    "failure_stage": "time_stepping",
+    "terminal_symptom": "timestep_at_or_below_dtmin"
+  },
+  "evidence": [
+    {
+      "source_id": "solver_events",
+      "observation": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 10",
+      "interpretation": "The first failure, in the nonlinear_solve stage."
+    },
+    {
+      "source_id": "solver_events",
+      "observation": "Solve failed and timestep already at or below dtmin, cannot continue!",
+      "interpretation": "The run stops here, as a consequence of the earlier failure."
+    }
+  ]
+}

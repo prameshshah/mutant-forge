@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "case_id": "D1-MF-DIFF1DT-F1-002",
+  "exit_code": 1,
+  "ordered_events": [
+    {
+      "order": 1,
+      "message": "Time Step 1, time = 32, dt = 32"
+    },
+    {
+      "order": 2,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 3,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 4,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 5,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 6,
+      "message": "Time Step 1, time = 16, dt = 16"
+    },
+    {
+      "order": 7,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 8,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 9,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 10,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 11,
+      "message": "Time Step 1, time = 8, dt = 8"
+    },
+    {
+      "order": 12,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 13,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 14,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 15,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 16,
+      "message": "Time Step 1, time = 4, dt = 4"
+    },
+    {
+      "order": 17,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 18,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 19,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 20,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 21,
+      "message": "Time Step 1, time = 2, dt = 2"
+    },
+    {
+      "order": 22,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 23,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 24,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 25,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 26,
+      "message": "Time Step 1, time = 1, dt = 1"
+    },
+    {
+      "order": 27,
+      "message": "Linear solve did not converge due to DIVERGED_ITS iterations 0"
+    },
+    {
+      "order": 28,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 29,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 30,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 31,
+      "message": "Solve failed and timestep already at or below dtmin, cannot continue!"
+    }
+  ]
+}

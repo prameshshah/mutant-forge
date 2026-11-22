@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "case_id": "D1-MF-NLHEAT1DT-F3-001",
+  "exit_code": 1,
+  "ordered_events": [
+    {
+      "order": 1,
+      "message": "Time Step 1, time = 2, dt = 2"
+    },
+    {
+      "order": 2,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 10"
+    },
+    {
+      "order": 3,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 4,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 5,
+      "message": "Time Step 1, time = 1, dt = 1"
+    },
+    {
+      "order": 6,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 10"
+    },
+    {
+      "order": 7,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 8,
+      "message": "Aborting as solve did not converge"
+    },
+    {
+      "order": 9,
+      "message": "Solve failed and timestep already at or below dtmin, cannot continue!"
+    }
+  ]
+}

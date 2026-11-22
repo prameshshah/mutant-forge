@@ -1,0 +1,76 @@
+schema_version: '2.0'
+benchmark_id: mutant-forge-drafts
+benchmark_version: 0.1.0
+required_atomic_subcategories:
+- D1
+cases:
+- case_id: D1-MF-DIFF1DT-F1-001
+  public_case: public/cases/D1-MF-DIFF1DT-F1-001/case.yaml
+  private_evaluation: private/cases/D1-MF-DIFF1DT-F1-001/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-DIFF1DT-F1-002
+  public_case: public/cases/D1-MF-DIFF1DT-F1-002/case.yaml
+  private_evaluation: private/cases/D1-MF-DIFF1DT-F1-002/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT1DT-F1-001
+  public_case: public/cases/D1-MF-NLHEAT1DT-F1-001/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT1DT-F1-001/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT1DT-F1-002
+  public_case: public/cases/D1-MF-NLHEAT1DT-F1-002/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT1DT-F1-002/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT1DT-F2-001
+  public_case: public/cases/D1-MF-NLHEAT1DT-F2-001/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT1DT-F2-001/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT1DT-F2-002
+  public_case: public/cases/D1-MF-NLHEAT1DT-F2-002/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT1DT-F2-002/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT2DT-F2-001
+  public_case: public/cases/D1-MF-NLHEAT2DT-F2-001/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT2DT-F2-001/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT2DT-F2-002
+  public_case: public/cases/D1-MF-NLHEAT2DT-F2-002/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT2DT-F2-002/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT1DT-F3-001
+  public_case: public/cases/D1-MF-NLHEAT1DT-F3-001/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT1DT-F3-001/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT1DT-F3-002
+  public_case: public/cases/D1-MF-NLHEAT1DT-F3-002/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT1DT-F3-002/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT2DT-F3-001
+  public_case: public/cases/D1-MF-NLHEAT2DT-F3-001/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT2DT-F3-001/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-NLHEAT2DT-F3-002
+  public_case: public/cases/D1-MF-NLHEAT2DT-F3-002/case.yaml
+  private_evaluation: private/cases/D1-MF-NLHEAT2DT-F3-002/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-DIFF2DS-F4-001
+  public_case: public/cases/D1-MF-DIFF2DS-F4-001/case.yaml
+  private_evaluation: private/cases/D1-MF-DIFF2DS-F4-001/evaluation.yaml
+  split: development
+  enabled: true
+- case_id: D1-MF-DIFF2DS-F4-002
+  public_case: public/cases/D1-MF-DIFF2DS-F4-002/case.yaml
+  private_evaluation: private/cases/D1-MF-DIFF2DS-F4-002/evaluation.yaml
+  split: development
+  enabled: true
