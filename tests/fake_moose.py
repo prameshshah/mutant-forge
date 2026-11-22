@@ -71,11 +71,16 @@ def main() -> int:
         emit(f"Time Step 1, time = {dt:g}, dt = {dt:g}\n")
         emit("[0]PETSC ERROR: Zero pivot in LU factorization\n")
         return 1
-    if mode == "flaky":
+    if mode in ("flaky", "unknown_once"):
         counter = Path(setting(text, "counter"))  # outside the run folder, so it survives
         n = int(counter.read_text()) if counter.exists() else 0
         counter.write_text(str(n + 1))
-        emit(d1_output(dt) if n % 2 == 0 else nonlinear_output(dt))
+        if mode == "flaky":
+            emit(d1_output(dt) if n % 2 == 0 else nonlinear_output(dt))
+        else:
+            # same events every run, but the second run also prints an unknown failure line
+            extra = "[0]PETSC ERROR: Zero pivot in LU factorization\n" if n == 1 else ""
+            emit(d1_output(dt).replace("*** ERROR ***", extra + "*** ERROR ***"))
         return 1
     if mode == "crash":
         os.kill(os.getpid(), signal.SIGSEGV)
