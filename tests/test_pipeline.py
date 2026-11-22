@@ -110,7 +110,7 @@ def test_self_check_failure_is_rejected(spec_for, cfg, tmp_path, monkeypatch):
     monkeypatch.setattr(bench, "self_check", lambda *a: SelfCheck(65.0, False, False))
     root = tmp_path / "out"
     o = generate_one(spec_for("d1"), cfg, root, Seen())
-    assert o.reason == "self_check_failed"
+    assert o.reason == "self_check_failed" and o.case_id is None
     assert not (root / "public/cases" / case_id_for("d10", "F1", 1)).exists()
     assert yaml.safe_load((root / "manifest.yaml").read_text())["cases"] == []
 

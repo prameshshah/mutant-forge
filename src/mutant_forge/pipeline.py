@@ -152,13 +152,15 @@ def generate_one(spec: FaultSpec, cfg: Config, root: Path, seen: Seen, cap: int 
         events=events,
         exit_code=runs[0].exit_code,
         labels=labels,
-        timestep_attempts=[float(e.rsplit("dt = ", 1)[1]) for e in events if e.startswith("Time")],
+        timestep_attempts=[
+            float(e.rsplit("dt = ", 1)[1]) for e in events if e.startswith("Time Step ")
+        ],
         runs=runs,
         meta=RunMeta(
             executable=cfg.executable,
             moose_revision=cfg.moose_revision,
             petsc_version=cfg.petsc_version,
-            command="combined-opt -i failing.i --color off",
+            command=f"{cfg.exe.name} -i failing.i --color off",
             captured_on=date.today(),
             platform=platform.platform(),
         ),
@@ -174,9 +176,9 @@ def generate_one(spec: FaultSpec, cfg: Config, root: Path, seen: Seen, cap: int 
     if detail is not None:
         _remove_case(root, case_id)
         write_manifest(root, seen.case_ids)
-        return reject(
-            Reason.SELF_CHECK_FAILED, detail, case_id=case_id, signature=signature, **found
-        )
+        # no case_id: the folder is gone, and the next kept case in this family reuses the ID
+        detail = f"{case_id}: {detail}"
+        return reject(Reason.SELF_CHECK_FAILED, detail, signature=signature, **found)
 
     seen.signatures.add(signature)
     seen.per_family[family] += 1
