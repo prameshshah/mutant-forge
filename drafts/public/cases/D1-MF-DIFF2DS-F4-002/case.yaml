@@ -1,0 +1,65 @@
+schema_version: '2.0'
+case_id: D1-MF-DIFF2DS-F4-002
+title: 'Draft (generated): boundary conditions removed from a steady problem (diff2ds)'
+case_kind: atomic
+track: DIAG
+subcategory: D1
+difficulty: L2
+scoring_profile: balanced_v1
+base_problem_id: MF-DIFF2DS-BASE-001
+physics_domains:
+- thermal_energy_transport
+target:
+  application: combined
+  version: c2dfd9fedd3193740a5278ec32269450c618e3b7
+  executable_hint: combined-opt
+prompt_path: prompt.md
+prompt_sha256: c7067ffdfa744503122f8f6ba40cacc145ee3f9a578f6c9f9726ac88c1af03fd
+artifacts:
+- id: failing_input
+  path: artifacts/failing.i
+  role: immutable_input
+  mutable: false
+  required: true
+  sha256: c0bfd2398670075067c3c1f0ab430f71f7442e8d1d56a3bc0d6d32c169776f2b
+evidence_sources:
+- id: solver_events
+  path: evidence/solver-events.json
+  kind: ordered_moose_solver_events
+  description: Solver messages in the order the pinned run printed them
+  sha256: 25985f4dbaf12700d555e887cafe33768afb944cb0342adfe36104930dd41373
+- id: run_metadata
+  path: evidence/run-metadata.json
+  kind: reproducibility_metadata
+  description: Build revision, PETSc version, command and file hashes
+  sha256: e22b6b6023f719d5603621dbc9d82aca6abb08fed125e2c0bda8c19336815f8e
+starting_state:
+  description: A MOOSE input and the ordered solver messages of its run.
+  supplied_truth:
+  - The input was run unchanged with the pinned combined-opt build.
+  - The messages keep the order in which the run printed them.
+  excluded_from_scoring:
+  - Input repair
+  - Solver retuning
+actions:
+  permitted:
+  - Read the supplied input and solver messages.
+  - Report the earliest failing stage and the terminal symptom.
+  prohibited:
+  - Modify or run the input.
+  - Read private evaluation or reproduction files.
+budget:
+  wall_time_seconds: 60
+  cpu_seconds: 30
+  memory_mib: 512
+  validation_attempts: 0
+  execution_attempts: 0
+submission:
+  response_mode: structured_json
+  required_claim_paths:
+  - /claim/failure_stage
+  - /claim/terminal_symptom
+  evidence_required: true
+  required_artifacts: []
+  maximum_artifacts: 0
+required_stages: []

@@ -1,0 +1,65 @@
+schema_version: '2.0'
+case_id: D1-MF-NLHEAT1DT-F3-001
+title: 'Draft (generated): nonlinear tolerances too tight to reach (nlheat1dt)'
+case_kind: atomic
+track: DIAG
+subcategory: D1
+difficulty: L2
+scoring_profile: balanced_v1
+base_problem_id: MF-NLHEAT1DT-BASE-001
+physics_domains:
+- thermal_energy_transport
+target:
+  application: combined
+  version: c2dfd9fedd3193740a5278ec32269450c618e3b7
+  executable_hint: combined-opt
+prompt_path: prompt.md
+prompt_sha256: c7067ffdfa744503122f8f6ba40cacc145ee3f9a578f6c9f9726ac88c1af03fd
+artifacts:
+- id: failing_input
+  path: artifacts/failing.i
+  role: immutable_input
+  mutable: false
+  required: true
+  sha256: 34e49e13fca81da87ee3a49efcadb00c844bfbe488a28ab6bf5e468fc8431240
+evidence_sources:
+- id: solver_events
+  path: evidence/solver-events.json
+  kind: ordered_moose_solver_events
+  description: Solver messages in the order the pinned run printed them
+  sha256: 3d2ff74e9d8f1e0f39a842f971922e97ff1d89826e8904580ef5df1201929e3c
+- id: run_metadata
+  path: evidence/run-metadata.json
+  kind: reproducibility_metadata
+  description: Build revision, PETSc version, command and file hashes
+  sha256: 0436a929b64fff82337966d6a79eb64981259e91947082b4bec798f9e1d4671e
+starting_state:
+  description: A MOOSE input and the ordered solver messages of its run.
+  supplied_truth:
+  - The input was run unchanged with the pinned combined-opt build.
+  - The messages keep the order in which the run printed them.
+  excluded_from_scoring:
+  - Input repair
+  - Solver retuning
+actions:
+  permitted:
+  - Read the supplied input and solver messages.
+  - Report the earliest failing stage and the terminal symptom.
+  prohibited:
+  - Modify or run the input.
+  - Read private evaluation or reproduction files.
+budget:
+  wall_time_seconds: 60
+  cpu_seconds: 30
+  memory_mib: 512
+  validation_attempts: 0
+  execution_attempts: 0
+submission:
+  response_mode: structured_json
+  required_claim_paths:
+  - /claim/failure_stage
+  - /claim/terminal_symptom
+  evidence_required: true
+  required_artifacts: []
+  maximum_artifacts: 0
+required_stages: []

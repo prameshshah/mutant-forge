@@ -1,0 +1,345 @@
+Framework Information:
+MOOSE Version:           git commit c2dfd9fedd on 2026-08-18
+LibMesh Version:         
+PETSc Version:           3.25.2
+SLEPc Version:           3.25.0
+Current Time:            Sat Nov 21 21:25:30 2026
+Executable Timestamp:    Wed Nov 18 04:53:03 2026
+
+Input File(s):
+  /tmp/mf-run-fyj0w85x/failing.i
+
+Command Line Argument(s):
+  --color off
+
+Checkpoint:
+  Wall Time Interval:      Every 3600 s
+  Checkpoint:              Outputs/checkpoint
+  # Checkpoints Kept:      2
+  Execute On:              TIMESTEP_END 
+
+Parallelism:
+  Num Processors:          1
+  Num Threads:             1
+
+Mesh: 
+  Parallel Type:           replicated
+  Mesh Dimension:          2
+  Spatial Dimension:       2
+  Nodes:                   121
+  Elems:                   100
+  Num Subdomains:          1
+
+Nonlinear System:
+  Num DOFs:                121
+  Num Local DOFs:          121
+  Variables:               "u" 
+  Finite Element Types:    "LAGRANGE" 
+  Approximation Orders:    "FIRST" 
+
+Execution Information:
+  Executioner:             Transient
+  TimeStepper:             ConstantDT
+  TimeIntegrator(s):       ImplicitEuler
+  Solver Mode:             NEWTON 
+  MOOSE Preconditioner:    SMP (auto) 
+
+
+Time Step 0, time = 0
+
+Time Step 1, time = 2, dt = 2
+ 0 Nonlinear |R| = 9.246621e-01
+      0 Linear |R| = 9.246621e-01
+      1 Linear |R| = 5.657727e-01
+      2 Linear |R| = 6.725622e-02
+      3 Linear |R| = 1.524049e-02
+      4 Linear |R| = 3.182430e-03
+      5 Linear |R| = 1.020674e-03
+      6 Linear |R| = 1.898787e-04
+      7 Linear |R| = 2.420764e-05
+      8 Linear |R| = 3.778116e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 1 Nonlinear |R| = 8.319312e-01
+      0 Linear |R| = 8.319312e-01
+      1 Linear |R| = 5.096882e-01
+      2 Linear |R| = 6.123692e-02
+      3 Linear |R| = 1.382652e-02
+      4 Linear |R| = 2.885946e-03
+      5 Linear |R| = 9.264275e-04
+      6 Linear |R| = 1.733667e-04
+      7 Linear |R| = 2.195707e-05
+      8 Linear |R| = 3.446709e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 2 Nonlinear |R| = 7.480051e-01
+      0 Linear |R| = 7.480051e-01
+      1 Linear |R| = 4.592171e-01
+      2 Linear |R| = 5.670899e-02
+      3 Linear |R| = 1.268059e-02
+      4 Linear |R| = 2.643575e-03
+      5 Linear |R| = 8.500993e-04
+      6 Linear |R| = 1.614992e-04
+      7 Linear |R| = 2.007081e-05
+      8 Linear |R| = 3.198077e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 3 Nonlinear |R| = 6.434856e-01
+      0 Linear |R| = 6.434856e-01
+      1 Linear |R| = 3.950860e-01
+      2 Linear |R| = 5.111394e-02
+      3 Linear |R| = 1.124909e-02
+      4 Linear |R| = 2.336570e-03
+      5 Linear |R| = 7.539118e-04
+      6 Linear |R| = 1.470725e-04
+      7 Linear |R| = 1.760044e-05
+      8 Linear |R| = 2.870095e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 4 Nonlinear |R| = 4.315125e-01
+      0 Linear |R| = 4.315125e-01
+      1 Linear |R| = 2.533633e-01
+      2 Linear |R| = 4.030129e-02
+      3 Linear |R| = 8.091433e-03
+      4 Linear |R| = 1.619161e-03
+      5 Linear |R| = 5.314657e-04
+      6 Linear |R| = 1.153606e-04
+      7 Linear |R| = 1.241506e-05
+      8 Linear |R| = 2.197794e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 5 Nonlinear |R| = 1.592581e-01
+      0 Linear |R| = 1.592581e-01
+      1 Linear |R| = 7.381549e-02
+      2 Linear |R| = 2.145066e-02
+      3 Linear |R| = 2.067589e-03
+      4 Linear |R| = 4.682360e-04
+      5 Linear |R| = 1.381843e-04
+      6 Linear |R| = 3.756525e-05
+      7 Linear |R| = 3.466050e-06
+      8 Linear |R| = 7.277212e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 6 Nonlinear |R| = 9.903368e-03
+      0 Linear |R| = 9.903368e-03
+      1 Linear |R| = 2.802299e-03
+      2 Linear |R| = 1.249589e-03
+      3 Linear |R| = 1.034558e-04
+      4 Linear |R| = 1.924891e-05
+      5 Linear |R| = 6.098634e-06
+      6 Linear |R| = 1.629949e-06
+      7 Linear |R| = 2.089409e-07
+      8 Linear |R| = 3.203975e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 7 Nonlinear |R| = 2.085664e-05
+      0 Linear |R| = 2.085664e-05
+      1 Linear |R| = 4.559806e-06
+      2 Linear |R| = 2.350916e-06
+      3 Linear |R| = 2.145757e-07
+      4 Linear |R| = 3.276122e-08
+      5 Linear |R| = 1.022208e-08
+      6 Linear |R| = 2.576897e-09
+      7 Linear |R| = 4.882259e-10
+      8 Linear |R| = 6.008877e-11
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 8 Nonlinear |R| = 8.127090e-11
+      0 Linear |R| = 8.127090e-11
+      1 Linear |R| = 2.027190e-11
+      2 Linear |R| = 9.041215e-12
+      3 Linear |R| = 3.376802e-12
+      4 Linear |R| = 7.749044e-13
+      5 Linear |R| = 2.957405e-13
+      6 Linear |R| = 5.054314e-14
+      7 Linear |R| = 6.193543e-15
+      8 Linear |R| = 7.437410e-16
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 9 Nonlinear |R| = 3.036917e-15
+      0 Linear |R| = 3.036917e-15
+      1 Linear |R| = 2.513389e-16
+      2 Linear |R| = 4.580912e-17
+      3 Linear |R| = 7.301396e-18
+      4 Linear |R| = 2.846468e-18
+      5 Linear |R| = 8.033005e-19
+      6 Linear |R| = 3.989536e-19
+      7 Linear |R| = 1.183505e-19
+      8 Linear |R| = 1.496892e-20
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+10 Nonlinear |R| = 2.589103e-15
+      0 Linear |R| = 2.589103e-15
+      1 Linear |R| = 1.268043e-16
+      2 Linear |R| = 1.456105e-17
+      3 Linear |R| = 4.945491e-18
+      4 Linear |R| = 1.609265e-18
+      5 Linear |R| = 5.029840e-19
+      6 Linear |R| = 2.627899e-19
+      7 Linear |R| = 6.774876e-20
+      8 Linear |R| = 8.294959e-21
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+11 Nonlinear |R| = 2.227069e-15
+      0 Linear |R| = 2.227069e-15
+      1 Linear |R| = 1.129985e-16
+      2 Linear |R| = 1.126386e-17
+      3 Linear |R| = 4.298553e-18
+      4 Linear |R| = 1.935279e-18
+      5 Linear |R| = 4.197613e-19
+      6 Linear |R| = 6.472822e-20
+      7 Linear |R| = 1.015558e-20
+    Linear solve converged due to CONVERGED_RTOL iterations 7
+  Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 11
+ Solve Did NOT Converge!
+
+Aborting as solve did not converge
+
+Time Step 1, time = 1, dt = 1
+ 0 Nonlinear |R| = 9.246621e-01
+      0 Linear |R| = 9.246621e-01
+      1 Linear |R| = 5.511309e-01
+      2 Linear |R| = 6.344810e-02
+      3 Linear |R| = 1.428062e-02
+      4 Linear |R| = 2.955943e-03
+      5 Linear |R| = 9.292502e-04
+      6 Linear |R| = 1.694886e-04
+      7 Linear |R| = 2.131576e-05
+      8 Linear |R| = 3.290873e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 1 Nonlinear |R| = 8.319610e-01
+      0 Linear |R| = 8.319610e-01
+      1 Linear |R| = 4.971171e-01
+      2 Linear |R| = 5.783465e-02
+      3 Linear |R| = 1.298221e-02
+      4 Linear |R| = 2.687492e-03
+      5 Linear |R| = 8.463798e-04
+      6 Linear |R| = 1.553108e-04
+      7 Linear |R| = 1.943570e-05
+      8 Linear |R| = 3.016739e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 2 Nonlinear |R| = 7.481008e-01
+      0 Linear |R| = 7.481008e-01
+      1 Linear |R| = 4.491486e-01
+      2 Linear |R| = 5.368438e-02
+      3 Linear |R| = 1.195782e-02
+      4 Linear |R| = 2.475350e-03
+      5 Linear |R| = 7.824088e-04
+      6 Linear |R| = 1.457855e-04
+      7 Linear |R| = 1.796709e-05
+      8 Linear |R| = 2.828168e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 3 Nonlinear |R| = 6.277613e-01
+      0 Linear |R| = 6.277613e-01
+      1 Linear |R| = 3.784135e-01
+      2 Linear |R| = 4.817875e-02
+      3 Linear |R| = 1.051536e-02
+      4 Linear |R| = 2.170172e-03
+      5 Linear |R| = 6.902311e-04
+      6 Linear |R| = 1.333496e-04
+      7 Linear |R| = 1.572494e-05
+      8 Linear |R| = 2.553129e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 4 Nonlinear |R| = 3.848952e-01
+      0 Linear |R| = 3.848952e-01
+      1 Linear |R| = 2.157133e-01
+      2 Linear |R| = 3.726125e-02
+      3 Linear |R| = 7.069451e-03
+      4 Linear |R| = 1.378486e-03
+      5 Linear |R| = 4.515824e-04
+      6 Linear |R| = 1.005431e-04
+      7 Linear |R| = 1.074521e-05
+      8 Linear |R| = 1.949068e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 5 Nonlinear |R| = 9.471649e-02
+      0 Linear |R| = 9.471649e-02
+      1 Linear |R| = 4.650191e-02
+      2 Linear |R| = 1.229796e-02
+      3 Linear |R| = 1.347233e-03
+      4 Linear |R| = 2.936059e-04
+      5 Linear |R| = 8.458984e-05
+      6 Linear |R| = 2.188811e-05
+      7 Linear |R| = 2.284029e-06
+      8 Linear |R| = 4.281502e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 6 Nonlinear |R| = 4.182291e-03
+      0 Linear |R| = 4.182291e-03
+      1 Linear |R| = 1.159561e-03
+      2 Linear |R| = 5.151141e-04
+      3 Linear |R| = 4.276283e-05
+      4 Linear |R| = 7.927567e-06
+      5 Linear |R| = 2.433822e-06
+      6 Linear |R| = 6.736054e-07
+      7 Linear |R| = 7.059047e-08
+      8 Linear |R| = 1.280384e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 7 Nonlinear |R| = 4.114898e-06
+      0 Linear |R| = 4.114898e-06
+      1 Linear |R| = 7.852129e-07
+      2 Linear |R| = 4.204240e-07
+      3 Linear |R| = 3.748312e-08
+      4 Linear |R| = 5.435227e-09
+      5 Linear |R| = 1.738399e-09
+      6 Linear |R| = 4.331833e-10
+      7 Linear |R| = 7.191869e-11
+      8 Linear |R| = 1.010622e-11
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 8 Nonlinear |R| = 1.027492e-11
+      0 Linear |R| = 1.027492e-11
+      1 Linear |R| = 2.373440e-12
+      2 Linear |R| = 7.505397e-13
+      3 Linear |R| = 3.229280e-13
+      4 Linear |R| = 9.804856e-14
+      5 Linear |R| = 4.080177e-14
+      6 Linear |R| = 6.480129e-15
+      7 Linear |R| = 8.797969e-16
+      8 Linear |R| = 1.293574e-16
+      9 Linear |R| = 1.348705e-17
+    Linear solve converged due to CONVERGED_RTOL iterations 9
+ 9 Nonlinear |R| = 3.040423e-15
+      0 Linear |R| = 3.040423e-15
+      1 Linear |R| = 1.606857e-16
+      2 Linear |R| = 2.875082e-17
+      3 Linear |R| = 1.489753e-17
+      4 Linear |R| = 4.319438e-18
+      5 Linear |R| = 1.380229e-18
+      6 Linear |R| = 4.612071e-19
+      7 Linear |R| = 6.674180e-20
+      8 Linear |R| = 8.811505e-21
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+10 Nonlinear |R| = 2.487665e-15
+      0 Linear |R| = 2.487665e-15
+      1 Linear |R| = 1.312668e-16
+      2 Linear |R| = 3.394860e-17
+      3 Linear |R| = 1.542024e-17
+      4 Linear |R| = 3.813955e-18
+      5 Linear |R| = 4.745399e-19
+      6 Linear |R| = 5.144942e-20
+      7 Linear |R| = 8.338178e-21
+    Linear solve converged due to CONVERGED_RTOL iterations 7
+11 Nonlinear |R| = 2.464086e-15
+      0 Linear |R| = 2.464086e-15
+      1 Linear |R| = 1.317736e-16
+      2 Linear |R| = 3.230023e-17
+      3 Linear |R| = 1.520515e-17
+      4 Linear |R| = 3.122680e-18
+      5 Linear |R| = 4.760551e-19
+      6 Linear |R| = 9.943244e-20
+      7 Linear |R| = 3.601041e-20
+      8 Linear |R| = 8.528631e-21
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+  Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 11
+ Solve Did NOT Converge!
+
+Aborting as solve did not converge
+
+
+*** ERROR ***
+The following occurred in the TimeStepper 'ConstantDT' of type ConstantDT.
+
+Solve failed and timestep already at or below dtmin, cannot continue!
+
+Stack frames: 13
+0: libMesh::print_trace(std::ostream&)
+1: moose::internal::mooseErrorRaw(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, hit::Node const*, bool)
+2: MooseBase::callMooseError(MooseApp*, InputParameters const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, hit::Node const*, bool)
+3: MooseBase::callMooseError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, hit::Node const*, bool) const
+4: TimeStepper::computeFailedDT()
+5: TimeStepper::computeStep()
+6: TransientBase::execute()
+7: MooseApp::executeExecutioner()
+8: MooseApp::run()
+9: ~/projects/moose/modules/combined/combined-opt(+0x60f2) [0x58fb32ab50f2]
+10: /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x7b4911a2a1ca]
+11: __libc_start_main
+12: ~/projects/moose/modules/combined/combined-opt(+0x6365) [0x58fb32ab5365]
+Abort(1) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0

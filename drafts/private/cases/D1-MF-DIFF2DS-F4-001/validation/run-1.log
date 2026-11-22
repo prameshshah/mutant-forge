@@ -1,0 +1,80 @@
+Framework Information:
+MOOSE Version:           git commit c2dfd9fedd on 2026-08-18
+LibMesh Version:         
+PETSc Version:           3.25.2
+SLEPc Version:           3.25.0
+Current Time:            Sat Nov 21 21:26:00 2026
+Executable Timestamp:    Wed Nov 18 04:53:03 2026
+
+Input File(s):
+  /tmp/mf-run-ac21w15w/failing.i
+
+Command Line Argument(s):
+  --color off
+
+Checkpoint:
+  Wall Time Interval:      Every 3600 s
+  Checkpoint:              Outputs/checkpoint
+  # Checkpoints Kept:      2
+  Execute On:              TIMESTEP_END 
+
+Parallelism:
+  Num Processors:          1
+  Num Threads:             1
+
+Mesh: 
+  Parallel Type:           replicated
+  Mesh Dimension:          2
+  Spatial Dimension:       2
+  Nodes:                   25
+  Elems:                   16
+  Num Subdomains:          1
+
+Nonlinear System:
+  Num DOFs:                25
+  Num Local DOFs:          25
+  Variables:               "u" 
+  Finite Element Types:    "LAGRANGE" 
+  Approximation Orders:    "FIRST" 
+
+Execution Information:
+  Executioner:             Steady
+  Solver Mode:             NEWTON 
+  MOOSE Preconditioner:    SMP (auto) 
+
+ 0 Nonlinear |R| = 2.187500e-01
+      0 Linear |R| = 2.187500e-01
+      1 Linear |R| = 2.163835e-01
+      2 Linear |R| = 2.160905e-01
+      3 Linear |R| = 2.127485e-01
+      4 Linear |R| = 2.127277e-01
+      5 Linear |R| = 2.109358e-01
+      6 Linear |R| = 2.101927e-01
+      7 Linear |R| = 2.098644e-01
+      8 Linear |R| = 2.078831e-01
+      9 Linear |R| = 2.077311e-01
+     10 Linear |R| = 2.063552e-01
+     11 Linear |R| = 2.056996e-01
+     12 Linear |R| = 2.056109e-01
+     13 Linear |R| = 2.054892e-01
+     14 Linear |R| = 2.047585e-01
+     15 Linear |R| = 1.965739e-01
+     16 Linear |R| = 1.896167e-01
+     17 Linear |R| = 1.831951e-01
+     18 Linear |R| = 1.774209e-01
+     19 Linear |R| = 1.721526e-01
+     20 Linear |R| = 1.673287e-01
+     21 Linear |R| = 1.628886e-01
+     22 Linear |R| = 1.587843e-01
+     23 Linear |R| = 1.549753e-01
+     24 Linear |R| = 1.514279e-01
+     25 Linear |R| = 1.481135e-01
+     26 Linear |R| = 1.450076e-01
+     27 Linear |R| = 1.420892e-01
+     28 Linear |R| = 1.393402e-01
+     29 Linear |R| = 1.367449e-01
+    Linear solve did not converge due to DIVERGED_BREAKDOWN iterations 30
+  Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0
+ Solve Did NOT Converge!
+
+Aborting as solve did not converge

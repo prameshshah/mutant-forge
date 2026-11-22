@@ -1,0 +1,10 @@
+{
+  "repetitions": 3,
+  "consistent": true,
+  "exit_codes": [
+    1,
+    1,
+    1
+  ],
+  "event_count": 4
+}

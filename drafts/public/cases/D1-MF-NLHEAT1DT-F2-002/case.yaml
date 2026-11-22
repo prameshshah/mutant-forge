@@ -1,0 +1,65 @@
+schema_version: '2.0'
+case_id: D1-MF-NLHEAT1DT-F2-002
+title: 'Draft (generated): Newton allowed one iteration (nlheat1dt)'
+case_kind: atomic
+track: DIAG
+subcategory: D1
+difficulty: L2
+scoring_profile: balanced_v1
+base_problem_id: MF-NLHEAT1DT-BASE-001
+physics_domains:
+- thermal_energy_transport
+target:
+  application: combined
+  version: c2dfd9fedd3193740a5278ec32269450c618e3b7
+  executable_hint: combined-opt
+prompt_path: prompt.md
+prompt_sha256: c7067ffdfa744503122f8f6ba40cacc145ee3f9a578f6c9f9726ac88c1af03fd
+artifacts:
+- id: failing_input
+  path: artifacts/failing.i
+  role: immutable_input
+  mutable: false
+  required: true
+  sha256: af9d2108ce9c2a4f46b437fb921414e673a52cbc2a09aa5b5d26a4710f2ce55e
+evidence_sources:
+- id: solver_events
+  path: evidence/solver-events.json
+  kind: ordered_moose_solver_events
+  description: Solver messages in the order the pinned run printed them
+  sha256: bbd3d3d5f2b0bce104707ae6cc6c0b913b7aea7a8fa12c6d825e5b209a7be317
+- id: run_metadata
+  path: evidence/run-metadata.json
+  kind: reproducibility_metadata
+  description: Build revision, PETSc version, command and file hashes
+  sha256: e7c268f13166e61ea4ed0875757db3d6cf3c0e2029fe2b35a5645abe26634972
+starting_state:
+  description: A MOOSE input and the ordered solver messages of its run.
+  supplied_truth:
+  - The input was run unchanged with the pinned combined-opt build.
+  - The messages keep the order in which the run printed them.
+  excluded_from_scoring:
+  - Input repair
+  - Solver retuning
+actions:
+  permitted:
+  - Read the supplied input and solver messages.
+  - Report the earliest failing stage and the terminal symptom.
+  prohibited:
+  - Modify or run the input.
+  - Read private evaluation or reproduction files.
+budget:
+  wall_time_seconds: 60
+  cpu_seconds: 30
+  memory_mib: 512
+  validation_attempts: 0
+  execution_attempts: 0
+submission:
+  response_mode: structured_json
+  required_claim_paths:
+  - /claim/failure_stage
+  - /claim/terminal_symptom
+  evidence_required: true
+  required_artifacts: []
+  maximum_artifacts: 0
+required_stages: []

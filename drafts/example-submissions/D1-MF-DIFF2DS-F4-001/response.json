@@ -1,0 +1,18 @@
+{
+  "claim": {
+    "failure_stage": "linear_solve",
+    "terminal_symptom": "solve_aborted"
+  },
+  "evidence": [
+    {
+      "source_id": "solver_events",
+      "observation": "Linear solve did not converge due to DIVERGED_BREAKDOWN iterations 30",
+      "interpretation": "The first failure, in the linear_solve stage."
+    },
+    {
+      "source_id": "solver_events",
+      "observation": "Aborting as solve did not converge",
+      "interpretation": "The run stops here, as a consequence of the earlier failure."
+    }
+  ]
+}

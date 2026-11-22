@@ -1,0 +1,124 @@
+Framework Information:
+MOOSE Version:           git commit c2dfd9fedd on 2026-08-18
+LibMesh Version:         
+PETSc Version:           3.25.2
+SLEPc Version:           3.25.0
+Current Time:            Sat Nov 21 21:24:51 2026
+Executable Timestamp:    Wed Nov 18 04:53:03 2026
+
+Input File(s):
+  /tmp/mf-run-mfixpszb/failing.i
+
+Command Line Argument(s):
+  --color off
+
+Checkpoint:
+  Wall Time Interval:      Every 3600 s
+  Checkpoint:              Outputs/checkpoint
+  # Checkpoints Kept:      2
+  Execute On:              TIMESTEP_END 
+
+Parallelism:
+  Num Processors:          1
+  Num Threads:             1
+
+Mesh: 
+  Parallel Type:           replicated
+  Mesh Dimension:          2
+  Spatial Dimension:       2
+  Nodes:                   121
+  Elems:                   100
+  Num Subdomains:          1
+
+Nonlinear System:
+  Num DOFs:                121
+  Num Local DOFs:          121
+  Variables:               "u" 
+  Finite Element Types:    "LAGRANGE" 
+  Approximation Orders:    "FIRST" 
+
+Execution Information:
+  Executioner:             Transient
+  TimeStepper:             ConstantDT
+  TimeIntegrator(s):       ImplicitEuler
+  Solver Mode:             NEWTON 
+  MOOSE Preconditioner:    SMP (auto) 
+
+
+Time Step 0, time = 0
+
+Time Step 1, time = 4, dt = 4
+ 0 Nonlinear |R| = 9.246621e-01
+      0 Linear |R| = 9.246621e-01
+      1 Linear |R| = 5.732556e-01
+      2 Linear |R| = 6.930235e-02
+      3 Linear |R| = 1.575772e-02
+      4 Linear |R| = 3.304607e-03
+      5 Linear |R| = 1.070580e-03
+      6 Linear |R| = 2.011923e-04
+      7 Linear |R| = 2.582671e-05
+      8 Linear |R| = 4.052894e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 1 Nonlinear |R| = 8.319143e-01
+  Nonlinear solve did not converge due to DIVERGED_MAX_IT iterations 1
+ Solve Did NOT Converge!
+
+Aborting as solve did not converge
+
+Time Step 1, time = 2, dt = 2
+ 0 Nonlinear |R| = 9.246621e-01
+      0 Linear |R| = 9.246621e-01
+      1 Linear |R| = 5.657727e-01
+      2 Linear |R| = 6.725622e-02
+      3 Linear |R| = 1.524049e-02
+      4 Linear |R| = 3.182430e-03
+      5 Linear |R| = 1.020674e-03
+      6 Linear |R| = 1.898787e-04
+      7 Linear |R| = 2.420764e-05
+      8 Linear |R| = 3.778116e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 1 Nonlinear |R| = 8.319312e-01
+  Nonlinear solve did not converge due to DIVERGED_MAX_IT iterations 1
+ Solve Did NOT Converge!
+
+Aborting as solve did not converge
+
+Time Step 1, time = 1, dt = 1
+ 0 Nonlinear |R| = 9.246621e-01
+      0 Linear |R| = 9.246621e-01
+      1 Linear |R| = 5.511309e-01
+      2 Linear |R| = 6.344810e-02
+      3 Linear |R| = 1.428062e-02
+      4 Linear |R| = 2.955943e-03
+      5 Linear |R| = 9.292502e-04
+      6 Linear |R| = 1.694886e-04
+      7 Linear |R| = 2.131576e-05
+      8 Linear |R| = 3.290873e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 8
+ 1 Nonlinear |R| = 8.319610e-01
+  Nonlinear solve did not converge due to DIVERGED_MAX_IT iterations 1
+ Solve Did NOT Converge!
+
+Aborting as solve did not converge
+
+
+*** ERROR ***
+The following occurred in the TimeStepper 'ConstantDT' of type ConstantDT.
+
+Solve failed and timestep already at or below dtmin, cannot continue!
+
+Stack frames: 13
+0: libMesh::print_trace(std::ostream&)
+1: moose::internal::mooseErrorRaw(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, hit::Node const*, bool)
+2: MooseBase::callMooseError(MooseApp*, InputParameters const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, hit::Node const*, bool)
+3: MooseBase::callMooseError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, hit::Node const*, bool) const
+4: TimeStepper::computeFailedDT()
+5: TimeStepper::computeStep()
+6: TransientBase::execute()
+7: MooseApp::executeExecutioner()
+8: MooseApp::run()
+9: ~/projects/moose/modules/combined/combined-opt(+0x60f2) [0x5d4248fc50f2]
+10: /lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca) [0x77ef7d02a1ca]
+11: __libc_start_main
+12: ~/projects/moose/modules/combined/combined-opt(+0x6365) [0x5d4248fc5365]
+Abort(1) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0

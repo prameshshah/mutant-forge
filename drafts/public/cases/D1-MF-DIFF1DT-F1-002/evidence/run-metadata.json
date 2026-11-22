@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "case_id": "D1-MF-DIFF1DT-F1-002",
+  "captured_on": "2026-11-21",
+  "executable": "modules/combined/combined-opt",
+  "moose_revision": "c2dfd9fedd3193740a5278ec32269450c618e3b7",
+  "petsc_version": "3.25.2",
+  "command": "combined-opt -i failing.i --color off",
+  "process_count": 1,
+  "repetitions": 3,
+  "expected_exit_code": 1,
+  "timestep_attempts": [
+    32,
+    16,
+    8,
+    4,
+    2,
+    1
+  ],
+  "sha256": {
+    "artifacts/failing.i": "3de5f2d151a817108d1d054570a3cd191cc36fbf2e2b9b04fa27ce111bd5d5b2",
+    "evidence/solver-events.json": "a88bafd5edee4eab3279fce7ee63db780f06eab712ac81614b3a1c0197567537"
+  }
+}

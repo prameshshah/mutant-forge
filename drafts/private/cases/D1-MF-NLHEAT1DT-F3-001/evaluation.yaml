@@ -1,0 +1,30 @@
+schema_version: '2.0'
+case_id: D1-MF-NLHEAT1DT-F3-001
+evaluator: structured_claim_v2
+capability_criteria:
+- id: failure_stage
+  weight: 0.5
+  description: Names the stage of the first failure message.
+  json_pointer: /claim/failure_stage
+  comparator: normalized_exact
+  expected: nonlinear_solve
+- id: terminal_symptom
+  weight: 0.5
+  description: Names the symptom of the last message.
+  json_pointer: /claim/terminal_symptom
+  comparator: normalized_exact
+  expected: timestep_at_or_below_dtmin
+evidence_criteria:
+- id: first_failure_observation
+  weight: 0.5
+  description: The first evidence entry quotes the first failure message.
+  json_pointer: /evidence/0/observation
+  comparator: contains
+  expected: DIVERGED_LINE_SEARCH
+- id: terminal_observation
+  weight: 0.5
+  description: The second evidence entry quotes the terminal message.
+  json_pointer: /evidence/1/observation
+  comparator: contains
+  expected: dtmin
+hard_gates: []

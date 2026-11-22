@@ -45,7 +45,20 @@ rows:
     role: downstream
     symptom: null
     token: Aborting
-    source: 'framework/src/executioners/TransientBase.C:511 (steady runs: SteadyBase.C:74)'
+    source: 'framework/src/executioners/TransientBase.C:511'
+
+  # The same line as `aborting`, but as the last line of a run with no time steps: a
+  # Steady run stops here when its solve does not converge. In a Transient run the line
+  # is followed by a smaller step, so it stays downstream there. Seen first in specs
+  # f4-diff2ds-1 to -8 (issue #17).
+  - id: solve_aborted_terminal
+    pattern: '^Aborting as solve did not converge$'
+    component: nonlinear_solver
+    role: terminal
+    symptom: solve_aborted
+    token: Aborting
+    source: 'framework/src/executioners/SteadyBase.C:74 (printed, then the steady loop stops)'
+    steady_end: true
 
   - id: dtmin_terminal
     pattern: '^Solve failed and timestep already at or below dtmin, cannot continue!$'

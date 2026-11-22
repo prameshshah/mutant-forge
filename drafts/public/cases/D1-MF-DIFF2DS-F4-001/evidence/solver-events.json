@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "case_id": "D1-MF-DIFF2DS-F4-001",
+  "exit_code": 1,
+  "ordered_events": [
+    {
+      "order": 1,
+      "message": "Linear solve did not converge due to DIVERGED_BREAKDOWN iterations 30"
+    },
+    {
+      "order": 2,
+      "message": "Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 0"
+    },
+    {
+      "order": 3,
+      "message": "Solve Did NOT Converge!"
+    },
+    {
+      "order": 4,
+      "message": "Aborting as solve did not converge"
+    }
+  ]
+}

@@ -11,8 +11,11 @@
 | `Linear solve did not converge due to <REASON> iterations <n>` | PETSc 3.25.2, with `-ksp_converged_reason` | linear_solver | failure | `linear_solve` |
 | `Nonlinear solve did not converge due to <REASON> iterations <n>` | PETSc 3.25.2, with `-snes_converged_reason` | nonlinear_solver | failure | `nonlinear_solve` |
 | `Solve Did NOT Converge!` | MOOSE `framework/src/executioners/FEProblemSolve.C:505` | time_stepper | downstream | - |
-| `Aborting as solve did not converge` | MOOSE `framework/src/executioners/TransientBase.C:511` (steady: `SteadyBase.C:74`) | time_stepper | downstream | - |
+| `Aborting as solve did not converge` | MOOSE `framework/src/executioners/TransientBase.C:511` | time_stepper | downstream | - |
+| `Aborting as solve did not converge`, as the last line of a run with no time steps | MOOSE `framework/src/executioners/SteadyBase.C:74` | nonlinear_solver | terminal | `solve_aborted` |
 | `Solve failed and timestep already at or below dtmin, cannot continue!` | MOOSE `framework/src/timesteppers/TimeStepper.C:210` | time_stepper | terminal | `timestep_at_or_below_dtmin` |
+
+The two `Aborting` rows are the same message in different places. In a Transient run it is followed by a retry with a smaller step, so it is a consequence. A Steady run prints it when its solve does not converge and then stops (`SteadyBase.C:74`), so as the last line of a run with no `Time Step` lines it is the terminal symptom. It was first seen in specs `f4-diff2ds-1` to `-8` (issue #17).
 
 ## Columns
 

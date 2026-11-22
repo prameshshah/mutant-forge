@@ -1,0 +1,144 @@
+Framework Information:
+MOOSE Version:           git commit c2dfd9fedd on 2026-08-18
+LibMesh Version:         
+PETSc Version:           3.25.2
+SLEPc Version:           3.25.0
+Current Time:            Sat Nov 21 21:26:06 2026
+Executable Timestamp:    Wed Nov 18 04:53:03 2026
+
+Input File(s):
+  /tmp/mf-run-sgymjydc/failing.i
+
+Command Line Argument(s):
+  --color off
+
+Checkpoint:
+  Wall Time Interval:      Every 3600 s
+  Checkpoint:              Outputs/checkpoint
+  # Checkpoints Kept:      2
+  Execute On:              TIMESTEP_END 
+
+Parallelism:
+  Num Processors:          1
+  Num Threads:             1
+
+Mesh: 
+  Parallel Type:           replicated
+  Mesh Dimension:          2
+  Spatial Dimension:       2
+  Nodes:                   36
+  Elems:                   25
+  Num Subdomains:          1
+
+Nonlinear System:
+  Num DOFs:                36
+  Num Local DOFs:          36
+  Variables:               "u" 
+  Finite Element Types:    "LAGRANGE" 
+  Approximation Orders:    "FIRST" 
+
+Execution Information:
+  Executioner:             Steady
+  Solver Mode:             NEWTON 
+  MOOSE Preconditioner:    SMP (auto) 
+
+ 0 Nonlinear |R| = 1.800000e-01
+      0 Linear |R| = 1.800000e-01
+      1 Linear |R| = 1.784411e-01
+      2 Linear |R| = 1.782719e-01
+      3 Linear |R| = 1.778977e-01
+      4 Linear |R| = 1.778787e-01
+      5 Linear |R| = 1.775077e-01
+      6 Linear |R| = 1.772829e-01
+      7 Linear |R| = 1.746330e-01
+      8 Linear |R| = 1.745694e-01
+      9 Linear |R| = 1.724003e-01
+     10 Linear |R| = 1.723639e-01
+     11 Linear |R| = 1.716179e-01
+     12 Linear |R| = 1.713679e-01
+     13 Linear |R| = 1.713276e-01
+     14 Linear |R| = 1.711090e-01
+     15 Linear |R| = 1.706519e-01
+     16 Linear |R| = 1.382191e-01
+     17 Linear |R| = 1.815433e-02
+     18 Linear |R| = 1.241135e-02
+     19 Linear |R| = 1.008681e-02
+     20 Linear |R| = 8.694867e-03
+     21 Linear |R| = 7.758254e-03
+     22 Linear |R| = 7.070577e-03
+     23 Linear |R| = 6.538423e-03
+     24 Linear |R| = 6.110772e-03
+     25 Linear |R| = 5.757368e-03
+     26 Linear |R| = 5.458948e-03
+     27 Linear |R| = 5.202587e-03
+     28 Linear |R| = 4.979254e-03
+     29 Linear |R| = 4.782414e-03
+    Linear solve did not converge due to DIVERGED_BREAKDOWN iterations 30
+ 1 Nonlinear |R| = 1.799840e-01
+      0 Linear |R| = 1.799840e-01
+      1 Linear |R| = 1.785772e-01
+      2 Linear |R| = 1.783468e-01
+      3 Linear |R| = 1.781434e-01
+      4 Linear |R| = 1.781318e-01
+      5 Linear |R| = 1.770267e-01
+      6 Linear |R| = 1.756117e-01
+      7 Linear |R| = 1.753288e-01
+      8 Linear |R| = 1.742318e-01
+      9 Linear |R| = 1.724763e-01
+     10 Linear |R| = 1.723952e-01
+     11 Linear |R| = 1.716579e-01
+     12 Linear |R| = 1.713980e-01
+     13 Linear |R| = 1.713654e-01
+     14 Linear |R| = 1.712255e-01
+     15 Linear |R| = 1.709540e-01
+     16 Linear |R| = 1.427205e-01
+     17 Linear |R| = 7.613161e-02
+     18 Linear |R| = 5.901754e-02
+     19 Linear |R| = 4.977932e-02
+     20 Linear |R| = 4.385214e-02
+     21 Linear |R| = 3.963825e-02
+     22 Linear |R| = 3.644426e-02
+     23 Linear |R| = 3.391576e-02
+     24 Linear |R| = 3.184970e-02
+     25 Linear |R| = 3.012037e-02
+     26 Linear |R| = 2.864524e-02
+     27 Linear |R| = 2.736758e-02
+     28 Linear |R| = 2.624691e-02
+     29 Linear |R| = 2.525353e-02
+    Linear solve did not converge due to DIVERGED_BREAKDOWN iterations 30
+ 2 Nonlinear |R| = 1.799335e-01
+      0 Linear |R| = 1.799335e-01
+      1 Linear |R| = 1.785218e-01
+      2 Linear |R| = 1.782909e-01
+      3 Linear |R| = 1.780929e-01
+      4 Linear |R| = 1.780817e-01
+      5 Linear |R| = 1.769524e-01
+      6 Linear |R| = 1.756229e-01
+      7 Linear |R| = 1.753307e-01
+      8 Linear |R| = 1.741987e-01
+      9 Linear |R| = 1.724358e-01
+     10 Linear |R| = 1.723711e-01
+     11 Linear |R| = 1.716491e-01
+     12 Linear |R| = 1.713842e-01
+     13 Linear |R| = 1.713544e-01
+     14 Linear |R| = 1.712135e-01
+     15 Linear |R| = 1.711090e-01
+     16 Linear |R| = 1.614301e-01
+     17 Linear |R| = 9.299620e-02
+     18 Linear |R| = 7.317805e-02
+     19 Linear |R| = 6.221251e-02
+     20 Linear |R| = 5.503948e-02
+     21 Linear |R| = 4.988714e-02
+     22 Linear |R| = 4.595458e-02
+     23 Linear |R| = 4.282601e-02
+     24 Linear |R| = 4.026017e-02
+     25 Linear |R| = 3.810636e-02
+     26 Linear |R| = 3.626494e-02
+     27 Linear |R| = 3.466701e-02
+     28 Linear |R| = 3.326326e-02
+     29 Linear |R| = 3.201729e-02
+    Linear solve did not converge due to DIVERGED_BREAKDOWN iterations 30
+  Nonlinear solve did not converge due to DIVERGED_LINE_SEARCH iterations 2
+ Solve Did NOT Converge!
+
+Aborting as solve did not converge

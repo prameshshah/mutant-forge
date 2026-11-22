@@ -1,5 +1,7 @@
 import hashlib
 import json
+from dataclasses import replace
+from pathlib import Path
 
 import yaml
 from helpers import d1_spec
@@ -84,6 +86,15 @@ def test_prompt_lists_the_allowed_values(tmp_path):
 
 def test_wrong_stage_differs():
     assert wrong_stage_response(SPEC)["claim"]["failure_stage"] == "time_stepping"
+
+
+def test_logs_hide_the_home_folder(tmp_path):
+    home = str(Path.home())
+    trace = f"9: {home}/projects/moose/modules/combined/combined-opt(+0x60f2)\n"
+    run = replace(SPEC.runs[0], output=SPEC.runs[0].output + trace)
+    write_case(replace(SPEC, runs=[run, run, run]), tmp_path, LEX)
+    log = (tmp_path / PRIVATE / "validation/run-1.log").read_text()
+    assert home not in log and "~/projects/moose/modules/combined/combined-opt" in log
 
 
 def test_case_id():
