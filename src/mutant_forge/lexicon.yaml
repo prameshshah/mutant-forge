@@ -45,7 +45,7 @@ rows:
     role: downstream
     symptom: null
     token: Aborting
-    source: 'framework/src/executioners/TransientBase.C:511 (steady runs: SteadyBase.C:74)'
+    source: 'framework/src/executioners/TransientBase.C:511'
 
   # The same line as `aborting`, but as the last line of a run with no time steps: a
   # Steady run stops here when its solve does not converge. In a Transient run the line

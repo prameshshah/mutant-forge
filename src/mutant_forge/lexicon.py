@@ -58,6 +58,8 @@ class Labels:
     first_event: str
     terminal_event: str
     wrong_stage: str  # a plausible wrong answer, to check that scoring tells them apart
+    first_token: str  # the word a correct answer must quote for each event
+    terminal_token: str
 
 
 class LabelError(Exception):
@@ -92,6 +94,8 @@ def label(events: list[str], lexicon: Lexicon) -> Labels:
         first_event=events[first],
         terminal_event=events[-1],
         wrong_stage=wrong_stage,
+        first_token=evidence_token(events[first], rows[first]),
+        terminal_token=evidence_token(events[-1], last),
     )
 
 

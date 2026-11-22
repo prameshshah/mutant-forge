@@ -15,6 +15,7 @@ def test_d1_labels():
         "time_stepping",
     )
     assert (labels.first_event, labels.terminal_event) == (D1_EVENTS[1], D1_EVENTS[-1])
+    assert (labels.first_token, labels.terminal_token) == ("DIVERGED_ITS", "dtmin")
 
 
 def test_nonlinear_first():
@@ -52,8 +53,7 @@ def test_f4_steady_abort_is_the_terminal_symptom():
         "solve_aborted",
         "nonlinear_solve",
     )
-    row = LEX.match(labels.terminal_event, steady_end=True)
-    assert evidence_token(labels.terminal_event, row) == "Aborting"
+    assert (labels.first_token, labels.terminal_token) == ("DIVERGED_BREAKDOWN", "Aborting")
 
 
 def test_abort_in_a_transient_run_is_downstream():

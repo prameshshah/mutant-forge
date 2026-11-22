@@ -8,7 +8,7 @@ from pathlib import Path
 
 import yaml
 
-from mutant_forge.lexicon import Labels, Lexicon, evidence_token
+from mutant_forge.lexicon import Labels, Lexicon
 from mutant_forge.runner import RunResult, consistent
 
 TEMPLATE = Path(__file__).with_name("templates") / "prompt_d1.md"
@@ -214,8 +214,6 @@ def write_case(spec: CaseSpec, root: Path, lexicon: Lexicon) -> None:
         },
     )
 
-    first_row = lexicon.match(labels.first_event)
-    terminal_row = lexicon.match(labels.terminal_event)
     _write_yaml(
         private / "evaluation.yaml",
         {
@@ -247,7 +245,7 @@ def write_case(spec: CaseSpec, root: Path, lexicon: Lexicon) -> None:
                     "description": "The first evidence entry quotes the first failure message.",
                     "json_pointer": "/evidence/0/observation",
                     "comparator": "contains",
-                    "expected": evidence_token(labels.first_event, first_row),
+                    "expected": labels.first_token,
                 },
                 {
                     "id": "terminal_observation",
@@ -255,7 +253,7 @@ def write_case(spec: CaseSpec, root: Path, lexicon: Lexicon) -> None:
                     "description": "The second evidence entry quotes the terminal message.",
                     "json_pointer": "/evidence/1/observation",
                     "comparator": "contains",
-                    "expected": evidence_token(labels.terminal_event, terminal_row),
+                    "expected": labels.terminal_token,
                 },
             ],
             "hard_gates": [],
