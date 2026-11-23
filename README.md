@@ -52,6 +52,11 @@ The benchmark is only read: its public sample case, its code and its checker. No
 - Labels such as `solve_aborted` are this project's own draft names.
 - Tested on one MOOSE build (commit `c2dfd9fe`, PETSc 3.25.2) on one machine.
 
+## Next
+
+- **MOOSE's own problems.** In a first test on two of MOOSE's tutorial inputs (heat transfer and Darcy), the same faults gave repeatable, cleanly labeled failures (`docs/tutorial-probe.md`). Next: generate cases from MOOSE's tutorial and module inputs.
+- **An AI experiment.** Measure how often an LLM blames the louder last error instead of the first failure.
+
 ## Try it
 
 You need MOOSE built at commit `c2dfd9fedd3193740a5278ec32269450c618e3b7`, moose-agent-benchmark checked out at `5bf036c`, and [uv](https://docs.astral.sh/uv/). Setup notes: `docs/environment.md`.
